@@ -27,9 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const searchParams = url.search; // e.g. ?code=...
       
       const hasCode = url.searchParams.has('code');
+      const hasTokenHash = url.searchParams.has('token_hash');
+      const hasAccessToken = new URLSearchParams(url.hash.replace('#', '?')).has('access_token');
       const hasError = url.searchParams.has('error') || new URLSearchParams(url.hash.replace('#', '?')).has('error');
 
-      if (!hasCode && !hasError) {
+      if (!hasCode && !hasTokenHash && !hasAccessToken && !hasError) {
         showError('No authentication code or error was found in the URL.');
         return;
       }
