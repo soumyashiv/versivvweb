@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const returnBtn = document.getElementById('return-btn');
 
   // The expected deep link scheme for the Versivv app
-  const APP_DEEP_LINK_SCHEME = 'versivv://login-callback';
+  const APP_DEEP_LINK_SCHEME = 'versivv://auth/callback';
 
   function showError(msg) {
     loadingContainer.classList.add('hidden');
